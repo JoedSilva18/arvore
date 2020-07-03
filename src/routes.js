@@ -1,4 +1,9 @@
+/* eslint-disable prettier/prettier */
 import { Router } from 'express';
+
+import SmsController from './app/controllers/SmsController';
+
+const smsController = new SmsController();
 
 const routes = new Router();
 
@@ -28,9 +33,7 @@ routes.post('/deslike/user/:user_id/book/:book_id', (req, res) =>
 );
 
 /* Envio SMS */
-routes.post('/sms', (req, res) =>
-  res.json({ message: 'Enviar numero de destino e a mensagem no corpo' })
-);
+routes.post('/sms', smsController.send);
 
 /* Armazena pagina atual */
 routes.put(
