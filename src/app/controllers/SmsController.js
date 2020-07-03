@@ -4,6 +4,8 @@ const zenvia = require('@zenvia/sdk');
 class SmsController {
 
   async send(request, response) {
+    const { from, to, contents } = request.body;
+ 
     const client = new zenvia.Client('sosHOWby2EokGLqMZnztDh2JCbSsVcMx0I50');
 
     const sms = client.getChannel('sms');
@@ -12,7 +14,7 @@ class SmsController {
       'Hey Valentina, não fique para trás! Não esqueça de ler seu livro hoje e ficar junto da sua turma no grupo de leitura.'
     );
 
-    await sms.sendMessage('upbeat-ink', '5519981650645', content)
+    await sms.sendMessage('upbeat-ink', `${to}`, content)
       .then(res => {
         console.log('Response:', res);
       })
@@ -48,6 +50,8 @@ class SmsController {
         channel: 'sms',
     });
     webhook.init();
+
+    console.log(messageResponse, messageStatusResponse);
     
     return response.json({ 'Status': 'Ok'});
   }
