@@ -5,6 +5,9 @@ class Category extends Model {
     super.init(
       {
         name: Sequelize.STRING,
+        code: Sequelize.STRING,
+        schooling_id: Sequelize.STRING,
+        image_url: Sequelize.STRING,
       },
       {
         sequelize,
@@ -12,6 +15,13 @@ class Category extends Model {
     );
 
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.schooling, {
+      foreignKey: 'schooling_id',
+      as: 'schooling',
+    });
   }
 }
 
