@@ -29,10 +29,10 @@ class AvaliationController {
       }
     });
 
-    await book.update({
+    /* await book.update({
       number_likes: likes + 1,
       number_deslikes: dislikes !== 0 ? dislikes - 1 : dislikes,
-    });
+    }); */
 
     return response.status(200).json({ book, dislikes });
   };
@@ -60,10 +60,10 @@ class AvaliationController {
       }
     });
 
-    await book.update({
+    /* await book.update({
       number_likes: likes !== 0 ? likes - 1 : likes,
       number_deslikes: dislikes + 1, 
-    });
+    }); */
 
     return response.status(200).json({ book, likes });
   };
