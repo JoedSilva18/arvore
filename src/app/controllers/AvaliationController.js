@@ -23,7 +23,7 @@ class AvaliationController {
 
     await book.update({
       number_likes: sequelize.literal('number_likes + 1'),
-      number_deslikes: sequelize.literal('number_deslikes') !== 0 ? sequelize.literal('number_deslikes - 1') : sequelize.literal('number_deslikes'),
+      number_deslikes: sequelize.literal('number_deslikes') !== '0' ? sequelize.literal('number_deslikes - 1') : sequelize.literal('number_deslikes'),
     });
 
     return response.send(book);
@@ -45,7 +45,7 @@ class AvaliationController {
     }; */
 
     await book.update({
-      number_likes: sequelize.literal('number_likes') !== 0 ? sequelize.literal('number_likes - 1') : sequelize.literal('number_likes'),
+      number_likes: sequelize.literal('number_likes') !== '0' ? sequelize.literal('number_likes - 1') : sequelize.literal('number_likes'),
       number_deslikes: sequelize.literal('number_deslikes + 1'), 
     });
 
