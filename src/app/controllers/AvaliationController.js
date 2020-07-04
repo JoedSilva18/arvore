@@ -15,26 +15,26 @@ class AvaliationController {
       },
     });
 
-    const likes = await Book.findAll({
+    const [{ number_likes }] = await Book.findAll({
       attributes: ['number_likes'],
       where: {
         id: book_id,
       },
     });
 
-    const dislikes = await Book.findAll({
+    const [{ number_deslikes }] = await Book.findAll({
       attributes: ['number_deslikes'],
       where: {
         id: book_id,
       }
     });
 
-    /* await book.update({
-      number_likes: likes + 1,
-      number_deslikes: dislikes !== 0 ? dislikes - 1 : dislikes,
-    }); */
+    await book.update({
+      number_likes: number_likes + 1,
+      number_deslikes: number_deslikes !== 0 ? number_deslikes - 1 : number_deslikes,
+    });
 
-    return response.status(200).json({ book, dislikes });
+    return response.status(200).json({ book, number_deslikes });
   };
 
   async addDislike(request, response) {
@@ -46,26 +46,26 @@ class AvaliationController {
       },
     });
 
-    const likes = await Book.findAll({
+    const [{ number_likes }] = await Book.findAll({
       attributes: ['number_likes'],
       where: {
         id: book_id,
       },
     });
 
-    const dislikes = await Book.findAll({
+    const [{ number_deslikes }] = await Book.findAll({
       attributes: ['number_deslikes'],
       where: {
         id: book_id,
       }
     });
 
-    /* await book.update({
-      number_likes: likes !== 0 ? likes - 1 : likes,
-      number_deslikes: dislikes + 1, 
-    }); */
+    await book.update({
+      number_likes: number_likes !== 0 ? number_likes - 1 : number_likes,
+      number_deslikes: number_deslikes + 1, 
+    });
 
-    return response.status(200).json({ book, likes });
+    return response.status(200).json({ book, number_likes });
   };
 
 };
