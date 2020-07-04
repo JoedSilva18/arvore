@@ -8,6 +8,7 @@ import AvaliationController from './app/controllers/AvaliationController';
 import CategoryController from './app/controllers/CategoryController';
 import UserBookController from './app/controllers/UserBookController';
 import ScholarityController from './app/controllers/ScholarityController';
+import MovieController from './app/controllers/MovieController';
 
 const routes = new Router();
 
@@ -15,6 +16,8 @@ routes.post('/user', UserController.store);
 
 /* Cria uma categoria */
 routes.post('/category', CategoryController.store);
+
+routes.get('/categories/:schooling_id', CategoryController.index);
 
 /* Salva livros */
 routes.post('/book', BookController.store);
@@ -53,5 +56,9 @@ routes.get('/userpage/user/:user_id/book/:book_id', UserBookController.getCurren
 routes.get('/averageTime/book/:book_id', BookController.getAverageTime);
 
 routes.post('/scholarity', ScholarityController.store);
+
+routes.post('/movie', MovieController.store);
+
+routes.get('/movies/:category_id', MovieController.index);
 
 export default routes;
