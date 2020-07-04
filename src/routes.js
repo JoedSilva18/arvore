@@ -9,6 +9,7 @@ import CategoryController from './app/controllers/CategoryController';
 import UserBookController from './app/controllers/UserBookController';
 import ScholarityController from './app/controllers/ScholarityController';
 import MovieController from './app/controllers/MovieController';
+import CharacterController from './app/controllers/CharacterController';
 
 const routes = new Router();
 
@@ -60,5 +61,9 @@ routes.post('/scholarity', ScholarityController.store);
 routes.post('/movie', MovieController.store);
 
 routes.get('/movies/:category_id', MovieController.index);
+
+routes.post('/character', CharacterController.store);
+
+routes.get('/characteres/:movie_id', CharacterController.index);
 
 export default routes;
