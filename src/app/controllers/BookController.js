@@ -28,6 +28,14 @@ class BookController {
     return res.status(200).json(books);
   }
 
+  async getAverageTime(req, res) {
+    const { book_id } = req.params;
+
+    const { average_time } = await Book.findByPk(book_id);
+
+    return res.status(200).json({ average_time });
+  }
+
   async findBooks(req, res) {
     const { historias, filmes, personagens, youtubers, jogos } = req.body;
     const combinacoes = [];

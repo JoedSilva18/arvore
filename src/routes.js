@@ -1,12 +1,16 @@
 /* eslint-disable prettier/prettier */
 import { Router } from 'express';
 
+import UserController from './app/controllers/UserControllers';
 import SmsController from './app/controllers/SmsController';
 import BookController from './app/controllers/BookController';
 import AvaliationController from './app/controllers/AvaliationController';
 import CategoryController from './app/controllers/CategoryController';
+import UserBookController from './app/controllers/UserBookController';
 
 const routes = new Router();
+
+routes.post('/user', UserController.store);
 
 /* Cria uma categoria */
 routes.post('/category', CategoryController.store);
@@ -32,20 +36,19 @@ routes.post('/dislike/user/:user_id/book/:book_id', AvaliationController.addDisl
 /* Envio SMS */
 routes.post('/sms', SmsController.send);
 
+/* Usuario inicia a leitura */
+routes.post('/userbook', UserBookController.store);
+
 /* Armazena pagina atual */
 routes.put(
   '/userpage/user/:user_id/book/:book_id/page/:page_number',
-  (req, res) => res.json({ message: 'Armazena pagina conforme usuario le' })
+  UserBookController.update
 );
 
 /* Busca pagina atual */
-routes.get('/userpage/user/:user_id/book/:book_id', (req, res) =>
-  res.json({ message: 'Busca pagina atual do livro em questao' })
-);
+routes.get('/userpage/user/:user_id/book/:book_id', UserBookController.getCurrentPage);
 
 /* Busca media de tempo de leitura do livro */
-routes.get('/mean/user/:user_id/book/:book_id', (req, res) =>
-  res.json({ message: 'busca tempo medio de leitura' })
-);
+routes.get('/averageTime/book/:book_id', BookController.getAverageTime);
 
 export default routes;
