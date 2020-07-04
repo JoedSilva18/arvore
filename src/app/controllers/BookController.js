@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Watson from '../../utils/WatsonML';
 import Book from '../models/Book';
 
