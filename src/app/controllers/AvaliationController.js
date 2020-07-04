@@ -15,8 +15,11 @@ class AvaliationController {
       },
     });
 
-    const dislikes = await book.findAll({
+    const dislikes = await Book.findAll({
       attributes: ['number_deslikes'],
+      where: {
+        id: book_id,
+      }
     });
 
     await book.update({
@@ -36,8 +39,11 @@ class AvaliationController {
       },
     });
 
-    const likes = await book.findAll({
+    const likes = await Book.findAll({
       attributes: ['number_likes'],
+      where: {
+        id: book_id,
+      },
     });
 
     await book.update({
