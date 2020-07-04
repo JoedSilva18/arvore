@@ -8,10 +8,10 @@ class AvaliationController {
   async addLike(request, response) {
     const { book_id } = request.params;
 
-    const book = await Book.findAll({
+    const book = await Book.findOne({
       where: {
-        id: book_id
-      }
+        id: book_id,
+      },
     });
 
     let [{  number_likes, number_deslikes }] = book;
@@ -22,29 +22,33 @@ class AvaliationController {
 
     await book.update({
       number_likes,
-      number_deslikes
-    })
+      number_deslikes,
+    });
 
-    return response.status(200).json(book);
+    return response.send(book);
   };
 
   async addDislike(request, response) {
     const { book_id } = request.params;
 
-    const book = await Book.findAll({
+    const book = await Book.findOne({
       where: {
-        id: book_id
-      }
+        id: book_id,
+      },
     });
 
-    const incrementedDislike = await book.increment('number_dislikes');
-    const decrementedLike = await book.decrement('number_likes');
+    let [{ number_likes, number_deslikes }] = book;
+    number_deslikes += 1;
+    if(number_likes !== 0) {
+      number_likes -= 1;
+    };
 
-    console.log(book);
-    console.log(incrementedDislike);
-    console.log(decrementedLike);
+    await book.update({
+      number_likes,
+      number_deslikes,
+    });
 
-    return response.json({ book, incrementedDislike, decrementedLike });
+    return response.status(200).json(book);
   };
 
 };
