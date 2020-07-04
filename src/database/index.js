@@ -6,8 +6,9 @@ import Category from '../app/models/Category';
 import Book from '../app/models/Book';
 import User from '../app/models/User';
 import UserBook from '../app/models/UserBook';
+import Scholarity from '../app/models/Scholarity';
 
-const models = [Category, Book, User, UserBook];
+const models = [Category, Book, User, UserBook, Scholarity];
 
 class Database {
   constructor() {
