@@ -2,8 +2,10 @@
 import { Router } from 'express';
 
 import SmsController from './app/controllers/SmsController';
+import AvaliationController from './app/controllers/AvaliationController';
 
 const smsController = new SmsController();
+const avaliationController = new AvaliationController();
 
 const routes = new Router();
 
@@ -23,14 +25,10 @@ routes.get('/book/category/:category', (req, res) =>
 );
 
 /* Dar like no livro */
-routes.post('/like/user/:user_id/book/:book_id', (req, res) =>
-  res.json({ message: 'Like no livro' })
-);
+routes.post('/like/user/:user_id/book/:book_id', avaliationController.addLike);
 
 /* Dar deslike no livro */
-routes.post('/deslike/user/:user_id/book/:book_id', (req, res) =>
-  res.json({ message: 'Deslike no livro' })
-);
+routes.post('/dislike/user/:user_id/book/:book_id', avaliationController.addDislike);
 
 /* Envio SMS */
 routes.post('/sms', smsController.send);
