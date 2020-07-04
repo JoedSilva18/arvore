@@ -58,4 +58,4 @@ class SmsController {
 
 };
 
-module.exports = SmsController;
+export default new SmsController();

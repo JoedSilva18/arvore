@@ -3,67 +3,67 @@
 // Controller para gerenciamento de like e dislike em um livro por um usuário
 import sequelize from 'sequelize';
 
-const database = require('../../database/index'); // Verificar como importar a tabela Books depois 
+const database = require('../../database/index'); // Verificar como importar a tabela Books depois
 
 class AvaliationController {
 
-    async addLike(request, response) {
-        const bookID = request.params;
+  async addLike(request, response) {
+    const bookID = request.params;
 
-        const trx = await sequelize.transaction();
+    const trx = await sequelize.transaction();
 
-        try {
-            const book = await database.findAll({
-                where: {
-                    id: bookID
-                }
-            });
-
-            const incrementedLike = await book.increment('number_likes');
-            const decrementedDislike = await book.decrement('number_dislikes');
-
-            await trx.commit();
-
-            console.log(book);
-            console.log(incrementedLike);
-            console.log(decrementedDislike);
-
-        } catch (error) {
-            await trx.rollback();
+    try {
+      const book = await database.findAll({
+        where: {
+          id: bookID
         }
+      });
 
-        return response.json({'Status': 'Ok'});
-    };
+      const incrementedLike = await book.increment('number_likes');
+      const decrementedDislike = await book.decrement('number_dislikes');
 
-    async addDislike(request, response) {
-        const bookID = request.params;
+      await trx.commit();
 
-        const trx = await sequelize.transaction();
+      console.log(book);
+      console.log(incrementedLike);
+      console.log(decrementedDislike);
 
-        try {
-            const book = await database.findAll({
-                where: {
-                    id: bookID
-                }
-            });
+    } catch (error) {
+      await trx.rollback();
+    }
 
-            const incrementedDislike = await book.increment('number_dislikes');
-            const decrementedLike = await book.decrement('number_likes');
+    return response.json({ 'Status': 'Ok' });
+  };
 
-            await trx.commit();
+  async addDislike(request, response) {
+    const bookID = request.params;
 
-            console.log(book);
-            console.log(incrementedDislike);
-            console.log(decrementedDislike);
+    const trx = await sequelize.transaction();
 
-        } catch (error) {
-            await trx.rollback();
+    try {
+      const book = await database.findAll({
+        where: {
+          id: bookID
         }
+      });
 
-        return response.json({'Status': 'Ok'});
-    };  
+      const incrementedDislike = await book.increment('number_dislikes');
+      const decrementedLike = await book.decrement('number_likes');
+
+      await trx.commit();
+
+      console.log(book);
+      console.log(incrementedDislike);
+      console.log(decrementedDislike);
+
+    } catch (error) {
+      await trx.rollback();
+    }
+
+    return response.json({ 'Status': 'Ok' });
+  };
 
 };
 
-module.exports = AvaliationController;
+export default new AvaliationController();
 

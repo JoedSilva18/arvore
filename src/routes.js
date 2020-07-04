@@ -2,17 +2,13 @@
 import { Router } from 'express';
 
 import SmsController from './app/controllers/SmsController';
+import BookController from './app/controllers/BookController';
 import AvaliationController from './app/controllers/AvaliationController';
-
-const smsController = new SmsController();
-const avaliationController = new AvaliationController();
 
 const routes = new Router();
 
 /* Buscar livros sugeridos */
-routes.get('/books', (req, res) =>
-  res.json({ message: 'Passar atributos e buscar livros' })
-);
+routes.post('/books', BookController.findBooks);
 
 /* Buscar livro por id */
 routes.get('/book/book_id/:id', (req, res) =>
@@ -25,13 +21,13 @@ routes.get('/book/category/:category', (req, res) =>
 );
 
 /* Dar like no livro */
-routes.post('/like/user/:user_id/book/:book_id', avaliationController.addLike);
+routes.post('/like/user/:user_id/book/:book_id', AvaliationController.addLike);
 
 /* Dar deslike no livro */
-routes.post('/dislike/user/:user_id/book/:book_id', avaliationController.addDislike);
+routes.post('/dislike/user/:user_id/book/:book_id', AvaliationController.addDislike);
 
 /* Envio SMS */
-routes.post('/sms', smsController.send);
+routes.post('/sms', SmsController.send);
 
 /* Armazena pagina atual */
 routes.put(
