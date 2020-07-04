@@ -2,20 +2,19 @@
 
 // Controller para gerenciamento de like e dislike em um livro por um usuário
 import sequelize from 'sequelize';
-
-const database = require('../../database/index'); // Verificar como importar a tabela Books depois
+import Book from '../models/Book';
 
 class AvaliationController {
 
   async addLike(request, response) {
-    const bookID = request.params;
+    const { book_id } = request.params;
 
     const trx = await sequelize.transaction();
 
     try {
-      const book = await database.findAll({
+      const book = await Book.findAll({
         where: {
-          id: bookID
+          id: book_id
         }
       });
 
@@ -32,18 +31,18 @@ class AvaliationController {
       await trx.rollback();
     }
 
-    return response.json({ 'Status': 'Ok' });
+    return response.status(200).json({ 'Status': 'Ok' });
   };
 
   async addDislike(request, response) {
-    const bookID = request.params;
+    const { book_id } = request.params;
 
     const trx = await sequelize.transaction();
 
     try {
-      const book = await database.findAll({
+      const book = await Book.findAll({
         where: {
-          id: bookID
+          id: book_id
         }
       });
 
@@ -54,7 +53,7 @@ class AvaliationController {
 
       console.log(book);
       console.log(incrementedDislike);
-      console.log(decrementedDislike);
+      console.log(decrementedLike);
 
     } catch (error) {
       await trx.rollback();

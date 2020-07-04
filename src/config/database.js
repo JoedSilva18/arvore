@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 require('dotenv/config');
 
 module.exports = {
