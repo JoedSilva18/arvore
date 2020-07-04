@@ -15,6 +15,13 @@ class AvaliationController {
       },
     });
 
+    const likes = await Book.findAll({
+      attributes: ['number_likes'],
+      where: {
+        id: book_id,
+      },
+    });
+
     const dislikes = await Book.findAll({
       attributes: ['number_deslikes'],
       where: {
@@ -23,11 +30,11 @@ class AvaliationController {
     });
 
     await book.update({
-      number_likes: sequelize.literal('number_likes + 1'),
-      number_deslikes: dislikes !== 0 ? sequelize.literal('number_deslikes - 1') : dislikes,
+      number_likes: likes + 1,
+      number_deslikes: dislikes !== 0 ? dislikes - 1 : dislikes,
     });
 
-    return response.send(book);
+    return response.status(200).json({ book, dislikes });
   };
 
   async addDislike(request, response) {
@@ -46,12 +53,19 @@ class AvaliationController {
       },
     });
 
-    await book.update({
-      number_likes: likes !== 0 ? sequelize.literal('number_likes - 1') : likes,
-      number_deslikes: sequelize.literal('number_deslikes + 1'), 
+    const dislikes = await Book.findAll({
+      attributes: ['number_deslikes'],
+      where: {
+        id: book_id,
+      }
     });
 
-    return response.status(200).json(book);
+    await book.update({
+      number_likes: likes !== 0 ? likes - 1 : likes,
+      number_deslikes: dislikes + 1, 
+    });
+
+    return response.status(200).json({ book, likes });
   };
 
 };
