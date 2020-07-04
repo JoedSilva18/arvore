@@ -56,23 +56,23 @@ class BookController {
       const payload =
         `{"input_data": [{"fields": ["historias", " filmes", " personagens", " youtubers", " jogos"],` +
         `"values": [["${historias}", "${combinacao[0]}", "${combinacao[1]}", "${
-          combinacao[2]
+        combinacao[2]
         }", "${combinacao[3]}"]]}]}`;
 
-      const book = await Watson.callWatsonML(payload);
-      books.push(book);
+      const book_code = await Watson.callWatsonML(payload);
+      books.push(book_code);
     });
 
     await Promise.all(promises);
 
-    const booksFilter = books.filter(function(thisBook, i) {
+    const booksFilter = books.filter(function (thisBook, i) {
       return books.indexOf(thisBook) === i;
     });
 
-    const promiseBook = booksFilter.map(async bookName => {
+    const promiseBook = booksFilter.map(async bookCode => {
       const bookResult = await Book.findOne({
         where: {
-          name: bookName,
+          code: bookCode,
         },
       });
 

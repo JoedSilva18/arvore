@@ -30,12 +30,12 @@ async function callMachineLearningService(
 }
 
 exports.callWatsonML = async function(payload) {
-  const book_name = await callMachineLearningService(
+  const book_code = await callMachineLearningService(
     scoring_url,
     wmlToken,
     mlInstanceId,
     payload
   );
 
-  return book_name.trim();
+  return book_code.trim();
 };

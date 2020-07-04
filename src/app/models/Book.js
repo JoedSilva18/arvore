@@ -5,6 +5,7 @@ class Book extends Model {
     super.init(
       {
         name: Sequelize.STRING,
+        code: Sequelize.STRING,
         description: Sequelize.STRING,
         image_url: Sequelize.STRING,
         number_pages: Sequelize.NUMBER,
