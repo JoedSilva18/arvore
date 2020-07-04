@@ -14,15 +14,15 @@ class AvaliationController {
       },
     });
 
-    let [{  number_likes, number_deslikes }] = book;
+    /* let [{  number_likes, number_deslikes }] = book;
     number_likes += 1;
     if(number_deslikes !== 0) {
       number_deslikes -= 1;
-    }
+    } */
 
     await book.update({
-      number_likes,
-      number_deslikes,
+      number_likes: 1,
+      number_deslikes: 1,
     });
 
     return response.send(book);
