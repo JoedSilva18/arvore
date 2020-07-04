@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 // Controller para gerenciamento de like e dislike em um livro por um usuário
+import sequelize from 'sequelize';
 import Book from '../models/Book';
 
 class AvaliationController {
@@ -21,8 +22,8 @@ class AvaliationController {
     } */
 
     await book.update({
-      number_likes: 1,
-      number_deslikes: 1,
+      number_likes: sequelize.literal('number_likes + 1'),
+      number_deslikes: sequelize.literal('number_deslikes') !== 0 ? sequelize.literal('number_deslikes - 1') : sequelize.literal('number_deslikes'),
     });
 
     return response.send(book);
@@ -37,15 +38,15 @@ class AvaliationController {
       },
     });
 
-    let [{ number_likes, number_deslikes }] = book;
+    /* let [{ number_likes, number_deslikes }] = book;
     number_deslikes += 1;
     if(number_likes !== 0) {
       number_likes -= 1;
-    };
+    }; */
 
     await book.update({
-      number_likes,
-      number_deslikes,
+      number_likes: sequelize.literal('number_likes') !== 0 ? sequelize.literal('number_likes - 1') : sequelize.literal('number_likes'),
+      number_deslikes: sequelize.literal('number_deslikes + 1'), 
     });
 
     return response.status(200).json(book);
