@@ -15,15 +15,13 @@ class AvaliationController {
       },
     });
 
-    /* let [{  number_likes, number_deslikes }] = book;
-    number_likes += 1;
-    if(number_deslikes !== 0) {
-      number_deslikes -= 1;
-    } */
+    const dislikes = await book.findAll({
+      attributes: ['number_deslikes'],
+    });
 
     await book.update({
       number_likes: sequelize.literal('number_likes + 1'),
-      number_deslikes: sequelize.literal('number_deslikes') !== '0' ? sequelize.literal('number_deslikes - 1') : sequelize.literal('number_deslikes'),
+      number_deslikes: dislikes !== 0 ? sequelize.literal('number_deslikes - 1') : dislikes,
     });
 
     return response.send(book);
@@ -38,14 +36,12 @@ class AvaliationController {
       },
     });
 
-    /* let [{ number_likes, number_deslikes }] = book;
-    number_deslikes += 1;
-    if(number_likes !== 0) {
-      number_likes -= 1;
-    }; */
+    const likes = await book.findAll({
+      attributes: ['number_likes'],
+    });
 
     await book.update({
-      number_likes: sequelize.literal('number_likes') !== '0' ? sequelize.literal('number_likes - 1') : sequelize.literal('number_likes'),
+      number_likes: likes !== 0 ? sequelize.literal('number_likes - 1') : likes,
       number_deslikes: sequelize.literal('number_deslikes + 1'), 
     });
 
