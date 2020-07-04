@@ -22,7 +22,7 @@ routes.post('/book', BookController.store);
 routes.post('/books', BookController.findBooks);
 
 /* Buscar livro por id */
-routes.get('/book/book_id/:id', BookController.show);
+routes.get('/book/:id', BookController.show);
 
 /* Buscar livros por categoria */
 routes.get('/book/category/:category_id', BookController.index);
