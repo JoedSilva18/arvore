@@ -14,14 +14,16 @@ class AvaliationController {
       }
     });
 
-    const incrementedLike = await book.increment('number_likes');
+    return response.status(200).json(book);
+
+    /* const incrementedLike = await book.increment('number_likes');
     const decrementedDislike = await book.decrement('number_dislikes');
 
     console.log(book);
     console.log(incrementedLike);
     console.log(decrementedDislike);
 
-    return response.status(200).json({ book, incrementedLike, decrementedDislike });
+    return response.status(200).json({ book, incrementedLike, decrementedDislike }); */
   };
 
   async addDislike(request, response) {
