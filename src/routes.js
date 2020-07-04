@@ -7,6 +7,7 @@ import BookController from './app/controllers/BookController';
 import AvaliationController from './app/controllers/AvaliationController';
 import CategoryController from './app/controllers/CategoryController';
 import UserBookController from './app/controllers/UserBookController';
+import ScholarityController from './app/controllers/ScholarityController';
 
 const routes = new Router();
 
@@ -50,5 +51,7 @@ routes.get('/userpage/user/:user_id/book/:book_id', UserBookController.getCurren
 
 /* Busca media de tempo de leitura do livro */
 routes.get('/averageTime/book/:book_id', BookController.getAverageTime);
+
+routes.post('/scholarity', ScholarityController.store);
 
 export default routes;
