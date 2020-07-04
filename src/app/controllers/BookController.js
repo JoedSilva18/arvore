@@ -39,7 +39,8 @@ class BookController {
   async findBooks(req, res) {
     const { historias, filmes, personagens, youtubers, jogos } = req.body;
     const combinacoes = [];
-    const livros = [];
+    const books = [];
+    const booksResult = [];
 
     filmes.forEach(filme => {
       personagens.forEach(personagem => {
@@ -58,13 +59,29 @@ class BookController {
           combinacao[2]
         }", "${combinacao[3]}"]]}]}`;
 
-      const livro = await Watson.callWatsonML(payload);
-      livros.push(livro);
+      const book = await Watson.callWatsonML(payload);
+      books.push(book);
     });
 
     await Promise.all(promises);
 
-    return res.json({ resposta: livros });
+    const booksFilter = books.filter(function(thisBook, i) {
+      return books.indexOf(thisBook) === i;
+    });
+
+    const promiseBook = booksFilter.map(async bookName => {
+      const bookResult = await Book.findOne({
+        where: {
+          name: bookName,
+        },
+      });
+
+      booksResult.push(bookResult);
+    });
+
+    await Promise.all(promiseBook);
+
+    return res.json(booksResult);
   }
 }
 
