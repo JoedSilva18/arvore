@@ -10,7 +10,7 @@ class Book extends Model {
         number_pages: Sequelize.NUMBER,
         author: Sequelize.STRING,
         number_likes: Sequelize.NUMBER,
-        number_dislikes: Sequelize.NUMBER,
+        number_deslikes: Sequelize.NUMBER,
         average_time: Sequelize.NUMBER,
         category_id: Sequelize.NUMBER,
       },

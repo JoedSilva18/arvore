@@ -1,6 +1,33 @@
 import Watson from '../../utils/WatsonML';
+import Book from '../models/Book';
 
 class BookController {
+  async store(req, res) {
+    const book = await Book.create(req.body);
+
+    return res.status(200).json(book);
+  }
+
+  async show(req, res) {
+    const { id } = req.params;
+
+    const book = await Book.findByPk(id);
+
+    return res.status(200).json(book);
+  }
+
+  async index(req, res) {
+    const { category_id } = req.params;
+
+    const books = await Book.findAll({
+      where: {
+        category_id,
+      },
+    });
+
+    return res.status(200).json(books);
+  }
+
   async findBooks(req, res) {
     const { historias, filmes, personagens, youtubers, jogos } = req.body;
     const combinacoes = [];
