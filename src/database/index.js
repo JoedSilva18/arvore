@@ -9,8 +9,18 @@ import UserBook from '../app/models/UserBook';
 import Scholarity from '../app/models/Scholarity';
 import Movie from '../app/models/Movie';
 import Character from '../app/models/Character';
+import YoutubeChannel from '../app/models/YoutubeChannel';
 
-const models = [Category, Book, User, UserBook, Scholarity, Movie, Character];
+const models = [
+  Category,
+  Book,
+  User,
+  UserBook,
+  Scholarity,
+  Movie,
+  Character,
+  YoutubeChannel,
+];
 
 class Database {
   constructor() {
