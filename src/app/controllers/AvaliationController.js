@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 
 // Controller para gerenciamento de like e dislike em um livro por um usuário
-import sequelize from 'sequelize';
 import Book from '../models/Book';
 
 class AvaliationController {
