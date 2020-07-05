@@ -12,8 +12,12 @@ import MovieController from './app/controllers/MovieController';
 import CharacterController from './app/controllers/CharacterController';
 import YoutubeChannelController from './app/controllers/YoutubeChannelController';
 import GameController from './app/controllers/GameController';
+import SessionController from './app/controllers/SessionController';
 
 const routes = new Router();
+
+
+routes.post('/session/:google_id', SessionController.store);
 
 routes.post('/user', UserController.store);
 
