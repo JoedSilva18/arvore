@@ -15,6 +15,7 @@ import GameController from './app/controllers/GameController';
 
 const routes = new Router();
 
+// Cria um usuário
 routes.post('/user', UserController.store);
 
 /* Cria uma categoria */
