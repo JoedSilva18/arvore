@@ -38,7 +38,7 @@ class BookController {
   }
 
   async findBooks(req, res) {
-    const { historias, filmes, personagens, youtubers, jogos } = req.body;
+    const { escolaridade, categoria, filmes, personagens, youtubers, jogos } = req.body;
     const combinacoes = [];
     const books = [];
     const booksResult = [];
@@ -47,7 +47,7 @@ class BookController {
       personagens.forEach(personagem => {
         youtubers.forEach(youtuber => {
           jogos.forEach(jogo => {
-            combinacoes.push([historias, filme, personagem, youtuber, jogo]);
+            combinacoes.push([filme, personagem, youtuber, jogo]);
           });
         });
       });
@@ -55,8 +55,8 @@ class BookController {
 
     const promises = combinacoes.map(async combinacao => {
       const payload =
-        `{"input_data": [{"fields": ["historias", " filmes", " personagens", " youtubers", " jogos"],` +
-        `"values": [["${historias}", "${combinacao[0]}", "${combinacao[1]}", "${
+        `{"input_data": [{"fields": ["escolaridade", "categoria", "filme", "personagem", "youtube", "jogo"],` +
+        `"values": [["${escolaridade}","${categoria}","${combinacao[0]}", "${combinacao[1]}", "${
         combinacao[2]
         }", "${combinacao[3]}"]]}]}`;
 
