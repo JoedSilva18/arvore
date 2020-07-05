@@ -1,4 +1,5 @@
 import Session from '../models/Session';
+import User from '../models/User';
 
 class SessionController {
   async store(req, res) {
@@ -9,10 +10,20 @@ class SessionController {
     });
 
     if (!session) {
-      return res.status(400).send(false);
+      return res.status(400).json({ message: 'User does not exists' });
     }
 
-    return res.status(200).send(true);
+    const user = await User.findOne({
+      where: {
+        google_id,
+      },
+    });
+
+    if (!user) {
+      return res.status(400).json({ message: 'User does not exists' });
+    }
+
+    return res.status(200).json(user);
   }
 }
 
