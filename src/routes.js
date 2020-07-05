@@ -20,6 +20,7 @@ routes.post('/user', UserController.store);
 /* Cria uma categoria */
 routes.post('/category', CategoryController.store);
 
+// Busca categorias por nível escolar
 routes.get('/categories/:schooling_id', CategoryController.index);
 
 /* Salva livros */
@@ -58,22 +59,31 @@ routes.get('/userpage/user/:user_id/book/:book_id', UserBookController.getCurren
 /* Busca media de tempo de leitura do livro */
 routes.get('/averageTime/book/:book_id', BookController.getAverageTime);
 
+// Cria nível escolar
 routes.post('/scholarity', ScholarityController.store);
 
+// Adiciona filme
 routes.post('/movie', MovieController.store);
 
+// Busca filme por categoria
 routes.get('/movies/:category_id', MovieController.index);
 
+// Adiciona personagem
 routes.post('/character', CharacterController.store);
 
+// Busca as personagens de um filme
 routes.get('/characteres/:movie_id', CharacterController.index);
 
+// Adiciona canal do Youtube
 routes.post('/channel', YoutubeChannelController.store);
 
+// Busca canais do Youtube
 routes.get('/channels', YoutubeChannelController.index);
 
+// Adiciona jogo
 routes.post('/game', GameController.store);
 
+// Busca jogos
 routes.get('/games', GameController.index);
 
 export default routes;
