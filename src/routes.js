@@ -10,6 +10,8 @@ import UserBookController from './app/controllers/UserBookController';
 import ScholarityController from './app/controllers/ScholarityController';
 import MovieController from './app/controllers/MovieController';
 import CharacterController from './app/controllers/CharacterController';
+import YoutubeChannelController from './app/controllers/YoutubeChannelController';
+import GameController from './app/controllers/GameController';
 
 const routes = new Router();
 
@@ -65,5 +67,13 @@ routes.get('/movies/:category_id', MovieController.index);
 routes.post('/character', CharacterController.store);
 
 routes.get('/characteres/:movie_id', CharacterController.index);
+
+routes.post('/channel', YoutubeChannelController.store);
+
+routes.get('/channels', YoutubeChannelController.index);
+
+routes.post('/game', GameController.store);
+
+routes.get('/games', GameController.index);
 
 export default routes;
