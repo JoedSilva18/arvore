@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="" height="260" width="320" />
+  <img src="https://i.imgur.com/kIR190t.png" height="260" width="320" />
 </p>
  
  # IMAGINE
