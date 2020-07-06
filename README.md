@@ -2,7 +2,7 @@
   <img src="" height="260" width="320" />
 </p>
  
- # IMAGINE DRAGONS
+ # IMAGINE
  
  **Este é o repositório do sistema Imagine desenvolvido em Kotlin para Android, proposta como solução para o desafio da Árvore Educação dentro do Mega Hack 3 organizado pela Shawee.**
  
