@@ -4,7 +4,7 @@
  
  # IMAGINE DRAGONS
  
- **Este é o repositório do sistema Imagine, proposta como solução para o desafio da Árvore Educação dentro do Mega Hack 3 organizado pela Shawee.**
+ **Este é o repositório do sistema Imagine desenvolvido em Kotlin para Android, proposta como solução para o desafio da Árvore Educação dentro do Mega Hack 3 organizado pela Shawee.**
  
  ### Introdução
  Durante o Mega Hack 3, a Árvore propôs desafios importantes e inerentes à realidade atual, melhorar a conectividade e/ou atrair o público não-leitor à leitura. 
