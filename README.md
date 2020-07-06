@@ -70,6 +70,13 @@ avaliações estarão sempre disponíveis para qualquer aluno ver e decidir se v
 </p>
 
 ### Por Trás dos Panos
+O aplicativo conta com um sistema de inteligência artificial utilizando serviços da IBM Cloud onde o mesmo analisa as informações disponibilizadas pelo usuário para verificar e indicar os melhores livros. Foi utilizado: 
+ - IBM Watson Machine Learning
+ - IBM Watson Studio
+ 
+ <p align="center">
+  <img src="https://i.ytimg.com/vi/MfH6T6J1_Jo/maxresdefault.jpg" height="360" width="600" />
+</p>
 
 
 
