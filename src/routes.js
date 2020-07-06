@@ -91,4 +91,6 @@ routes.post('/game', GameController.store);
 // Busca jogos
 routes.get('/games', GameController.index);
 
+routes.put('/user/:user_id', UserController.update);
+
 export default routes;
