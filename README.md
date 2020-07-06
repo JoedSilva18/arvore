@@ -27,47 +27,23 @@
  O Imagine pode ser definido como um sistema de engajamento à leitura. Ele pode ser totalmente acoplado dentro das soluções existentes da Árvore Educação. Quando o aluno
  entrar no aplicativo ou no site da Árvore com o Imagine, serão feitas algumas perguntas básicas sobre tipos de histórias, filmes, personagens, games e youtuber favoritos.
  
-<p align="center">
-  <img src="" height="260" width="320" />
-</p>
- 
  Isso permite a nossa Inteligência Artificial, cruzar dados e encontrar as melhores alternativas de leitura para esse aluno, que têm maior chance de sucesso. Não é uma
  ciência exata, mas aumenta as probabilidades.
- 
-<p align="center">
-  <img src="" height="260" width="320" />
-</p>
 
 Se, mesmo assim, o aluno não tiver seus gostos representados e/ou não quiser/souber selecioná-los, todo o acervo da Árvore será disponibilizado para ele navegar
 normalmente e escolher sua próxima leitura.
-
-<p align="center">
-  <img src="" height="260" width="320" />
-</p>
 
 Quando escolher uma leitura, o aluno sempre será estimulado a ler mais e continuar o que parou. Nossa IA não só recomenda, como coleta dados de percentuais de leitura
 e usa o que for mais adequado para engajar nossos alunos. Isso funciona muito bem com estudantes que se encaixam no nosso público-alvo majoritário de interesse, 
 jovens de ensino fundamental II e ensino médio. 
 
-<p align="center">
-  <img src="" height="260" width="320" />
-</p>
-
 Mesmo fora do aplicativo, quando o Imagine identificar que alguma coisa não está certa (leia-se: o aluno perdeu o interesse na leitura), enviaremos um SMS para lembrá-lo
 que seus amigos estão seguindo e se divertindo com leituras semelhantes. Ele pode trocar de leitura a qualquer momento, mas a ideia é que não jogue a toalha.
-
-<p align="center">
-  <img src="" height="260" width="320" />
-</p>
 
 Tá. Tudo bem. Algumas leituras são um saco. E não combinam com o que gostamos. Cada um gosta de uma coisa diferente e nenhuma inteligência artificial é perfeita. Se 
 o aluno não gostar de um livro ele pode sair da leitura e avaliá-la com uma simples ação de descurtir. Bem intuitivo, para tornar mais agradável a experiência.
 Maaaaas, se a leitura tiver sido boa e ele quiser recomendar para os amiguinhos, além dos mecanimos que a Árvore já oferece de indicação, ele pode curtir. E essas 
 avaliações estarão sempre disponíveis para qualquer aluno ver e decidir se vale a pena para ele ou não começar aquele livro.
-
-<p align="center">
-  <img src="" height="260" width="320" />
-</p>
 
 ### Por Trás dos Panos
 O aplicativo conta com um sistema de inteligência artificial utilizando serviços da IBM Cloud onde o mesmo analisa as informações disponibilizadas pelo usuário para verificar e indicar os melhores livros. Foi utilizado: 
@@ -81,7 +57,7 @@ O aplicativo conta com um sistema de inteligência artificial utilizando serviç
 
 
 ### Saiba mais
-
+Outros materiais estão disponíveis na plataforma da Shawee e no Youtube.
 
 ### Obrigado!
 Se você gostou da nossa solução e acha que ela está no caminho certo, deixe uma estrela. Agradecemos completamente o tempo que dedicou para ler sobre o Imagine. 
