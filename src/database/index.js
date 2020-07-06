@@ -11,6 +11,7 @@ import Movie from '../app/models/Movie';
 import Character from '../app/models/Character';
 import YoutubeChannel from '../app/models/YoutubeChannel';
 import Game from '../app/models/Game';
+import Session from '../app/models/Session';
 
 const models = [
   Category,
@@ -22,6 +23,7 @@ const models = [
   Character,
   YoutubeChannel,
   Game,
+  Session,
 ];
 
 class Database {

@@ -6,6 +6,7 @@ class Book extends Model {
       {
         name: Sequelize.STRING,
         code: Sequelize.STRING,
+        book_url: Sequelize.STRING,
         description: Sequelize.STRING,
         image_url: Sequelize.STRING,
         number_pages: Sequelize.NUMBER,
